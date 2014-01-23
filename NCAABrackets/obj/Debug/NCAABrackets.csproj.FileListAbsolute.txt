@@ -1,0 +1,6 @@
+c:\users\joshua.rivera\documents\visual studio 2012\Projects\NCAABrackets\NCAABrackets\bin\Debug\NCAABrackets.exe.config
+c:\users\joshua.rivera\documents\visual studio 2012\Projects\NCAABrackets\NCAABrackets\bin\Debug\NCAABrackets.exe
+c:\users\joshua.rivera\documents\visual studio 2012\Projects\NCAABrackets\NCAABrackets\bin\Debug\NCAABrackets.pdb
+c:\users\joshua.rivera\documents\visual studio 2012\Projects\NCAABrackets\NCAABrackets\obj\Debug\NCAABrackets.csprojResolveAssemblyReference.cache
+c:\users\joshua.rivera\documents\visual studio 2012\Projects\NCAABrackets\NCAABrackets\obj\Debug\NCAABrackets.exe
+c:\users\joshua.rivera\documents\visual studio 2012\Projects\NCAABrackets\NCAABrackets\obj\Debug\NCAABrackets.pdb
