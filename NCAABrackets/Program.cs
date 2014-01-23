@@ -201,45 +201,150 @@ namespace NCAABrackets
 
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"c:\bracket2.txt", false))
             {
-                //SOUTH
+                /*
+                //SOUTH - 2^8
                 for (int iSouth = 0; iSouth < 256; iSouth++)
                 {
-                    string sSouth = Convert.ToString(iSouth, 2).PadLeft(8,'0');
-
-                    //WEST
+                    //WEST - 2^16
                     for (int iWest = 0; iWest < 256; iWest++)
                     {
-                        string sWest = Convert.ToString(iWest, 2).PadLeft(8, '0');
-
-                        //EAST
+                        //EAST - 2^24
                         for (int iEast = 0; iEast < 256; iEast++)
                         {
-                            string sEast = Convert.ToString(iEast, 2).PadLeft(8, '0');
-
-                            //MIDWEST
+                            //MIDWEST - 2^32
                             for (int iMidwest = 0; iMidwest < 256; iMidwest++)
                             {
-                                string sMidwest = Convert.ToString(iMidwest, 2).PadLeft(8, '0');
-
-                                line += sSouth + sWest + sEast + sMidwest;
-
-                                file.WriteLine(line);
-                                Console.WriteLine(iteration + " - " + line);
-                                iteration++;
-
-                                if (line.Equals(WINNING_LINE))
+                                
+                                //Round of 32, 4 games per region, or 8 games per two regions added together, like i'm doing.
+                                //SouthAndWest - 2^40
+                                for (int iSouthAndWest = 0; iSouthAndWest < 256; iSouthAndWest++)
                                 {
-                                    WINNING_ITERATION = iteration;
+                                    //SouthAndWest - 2^48
+                                    for (int iEastAndMidwest = 0; iEastAndMidwest < 256; iEastAndMidwest++)
+                                    {
+                                        //Sweet 16 - 2^56
+                                        for (int iSweet16 = 0; iSweet16 < 256; iSweet16++)
+                                        {
+                                            //Elite 8 - 2^60
+                                            for (int iElite8 = 0; iElite8 < 16; iElite8++)
+                                            {
+                                                //Final Four - 2^62
+                                                for (int iFinalFour = 0; iFinalFour < 4; iFinalFour++)
+                                                {
+                                                    //Championship - 2^63
+                                                    for (int iChampionship = 0; iChampionship < 2; iChampionship++)
+                                                    {
+                                                        string sSouth = Convert.ToString(iSouth, 2).PadLeft(8, '0');
+                                                        string sWest = Convert.ToString(iWest, 2).PadLeft(8, '0');
+                                                        string sEast = Convert.ToString(iEast, 2).PadLeft(8, '0');
+                                                        string sMidwest = Convert.ToString(iMidwest, 2).PadLeft(8, '0');
+
+                                                        string sSouthAndWest = Convert.ToString(iSouthAndWest, 2).PadLeft(8, '0');
+                                                        string sEastAndMidwest = Convert.ToString(iEastAndMidwest, 2).PadLeft(8, '0');
+
+                                                        string sSweet16 = Convert.ToString(iSweet16, 2).PadLeft(8, '0');
+                                                        string sElite8 = Convert.ToString(iElite8, 2).PadLeft(4, '0');
+                                                        string sFinalFour = Convert.ToString(iFinalFour, 2).PadLeft(2, '0');
+                                                        string sChampionship = Convert.ToString(iChampionship, 2).PadLeft(1, '0');
+
+                                                        line = "";
+                                                        line += sSouth + sWest + sEast + sMidwest;
+
+                                                        //file.WriteLine(line);
+                                                        Console.WriteLine(iteration + " - " + line);
+                                                        
+                                                        line = "".PadLeft(32, ' ');
+                                                        line += sSouthAndWest + sEastAndMidwest;
+                                                        Console.WriteLine(iteration + " - " + line);
+
+                                                        line = "".PadLeft(48, ' ');
+                                                        line += sSweet16;
+                                                        Console.WriteLine(iteration + " - " + line);
+
+                                                        line = "".PadLeft(56, ' ');
+                                                        line += sElite8;
+                                                        Console.WriteLine(iteration + " - " + line);
+
+                                                        line = "".PadLeft(60, ' ');
+                                                        line += sFinalFour;
+                                                        Console.WriteLine(iteration + " - " + line);
+
+                                                        line = "".PadLeft(62, ' ');
+                                                        line += sChampionship;
+                                                        Console.WriteLine(iteration + " - " + line);
+
+
+                                                        if (line.Equals(WINNING_LINE))
+                                                        {
+                                                            WINNING_ITERATION = iteration;
+                                                        }
+
+
+                                                        iteration++;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
 
-
-                                line = "";
                             }
                         }
                     }
                 }
 
+                */
 
+                /*
+                 * OOOOORRRRRR
+                 * */
+
+                for (int iNCAA = 0; iNCAA <= Math.Pow(2, 63); iNCAA++)
+                {
+                    string sNCAA = Convert.ToString(iNCAA, 2).PadLeft(63, '0');
+                    Console.WriteLine(iNCAA + " - " + sNCAA);
+
+                    string sSouth = sNCAA.Substring(0, 8);
+                    string sWest = sNCAA.Substring(8, 8);
+                    string sEast = sNCAA.Substring(16, 8);
+                    string sMidwest = sNCAA.Substring(24, 8);
+
+                    string sSouthAndWest = sNCAA.Substring(32, 8);
+                    string sEastAndMidwest = sNCAA.Substring(40, 8);
+
+                    string sSweet16 = sNCAA.Substring(48, 8);
+                    string sElite8 = sNCAA.Substring(56, 4);
+                    string sFinalFour = sNCAA.Substring(60, 2);
+                    string sChampionship = sNCAA.Substring(62, 1);
+
+
+                    line = "";
+                    line += sSouth + sWest + sEast + sMidwest;
+
+                    //file.WriteLine(line);
+                    Console.WriteLine(iNCAA + " - " + line);
+
+                    line = "".PadLeft(32, ' ');
+                    line += sSouthAndWest + sEastAndMidwest;
+                    Console.WriteLine(iNCAA + " - " + line);
+
+                    line = "".PadLeft(48, ' ');
+                    line += sSweet16;
+                    Console.WriteLine(iNCAA + " - " + line);
+
+                    line = "".PadLeft(56, ' ');
+                    line += sElite8;
+                    Console.WriteLine(iNCAA + " - " + line);
+
+                    line = "".PadLeft(60, ' ');
+                    line += sFinalFour;
+                    Console.WriteLine(iNCAA + " - " + line);
+
+                    line = "".PadLeft(62, ' ');
+                    line += sChampionship;
+                    Console.WriteLine(iNCAA + " - " + line);
+
+                }
                 
             }
 
